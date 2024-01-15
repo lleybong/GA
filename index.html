@@ -150,7 +150,9 @@
       <table id="table1" class="display" width="100%"></table>
     </div>
     <div class="section" id="3">
-      <p>Section 3</p>
+      <div>
+        <canvas id="myChart"></canvas>
+      </div>
     </div>
   </div>
 
@@ -165,7 +167,7 @@
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
   <script src="https://unpkg.com/fullpage.js/dist/fullpage.min.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <script>
 
@@ -209,6 +211,35 @@
         ]
       });
     });
+
+    const labels = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June'
+    ];
+    // Set labels, colours and data
+    const data = {
+      labels: labels,
+      datasets: [{
+        label: 'My First Dataset',
+        backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(153, 102, 255)', 'rgb(255, 159, 64)'],
+        borderColor: 'rgb(255, 255, 255)',
+        data: [5, 10, 5, 2, 20, 30],
+      }]
+    };
+    // Configure chart
+    const config = {
+      type: 'bar',
+      data: data,
+    };
+    // Render chart in <canvas>
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
   </script>
 
 </body>
