@@ -1,0 +1,17 @@
+.reserve-btn {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .reserve-btn:hover {
+    background-color: #d9534f; /* Red color on hover */
+    color: #fff;
+  }
+  .reserve-btn.reserved {
+    background-color: #808080; /* Grey color when reserved */
+    color: #fff;
+    cursor: not-allowed;
+  }
