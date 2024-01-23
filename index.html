@@ -10,14 +10,16 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="style.css">
-  <title>Red Navbar with Font Awesome Icons</title>
+  <title>Woodlands Library</title>
 </head>
 
 <body>
 
+  <div class="overlay"></div>
+
   <div id="fullpage">
-    <div class="section" id="1">
-      <nav class="navbar navbar-expand-lg navbar-light bg-danger">
+    <div class="section" id="s1">
+      <nav class="navbar navbar-expand-lg navbar-light bg-warning fixed-top-navbar">
         <a class="navbar-brand" href="#">
           <img src="your-logo.png" alt="Your Logo" height="30" class="d-inline-block align-top">
         </a>
@@ -25,19 +27,19 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#1">
+              <a class="nav-link" href="#s1">
                 <i class="fas fa-home"></i>
                 Home <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#2">
+              <a class="nav-link" href="#s2">
                 <i class="fas fa-chart-bar"></i>
                 Stats
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#3">
+              <a class="nav-link" href="#s3">
                 <i class="fas fa-box"></i>
                 Inventory
               </a>
@@ -45,122 +47,165 @@
           </ul>
         </div>
       </nav>
-      <div class="container mt-4">
-        <div class="row">
-          <!-- Card 1 -->
-          <div class="col-md-3 mb-4">
-            <div class="card">
-              <img src="images/pic1.png" class="card-img-top" alt="Card Image">
-              <div class="card-body">
-                <h5 class="card-title">Think Faster, Talk Smarter</h5>
-                <p class="card-text"><i class="fas fa-user"></i> Matt Abrahams</p>
-                <button class="reserve-btn">Reserve</button>
-              </div>
-            </div>
-          </div>
 
-          <!-- Card 2 -->
-          <div class="col-md-3 mb-4">
-            <div class="card">
-              <img src="images/pic2.png" class="card-img-top" alt="Card Image">
-              <div class="card-body">
-                <h5 class="card-title">Atomic Habits</h5>
-                <p class="card-text"><i class="fas fa-user"></i> James Clear</p>
-                <button class="reserve-btn">Reserve</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="col-md-3 mb-4">
-            <div class="card">
-              <img src="images/pic3.png" class="card-img-top" alt="Card Image">
-              <div class="card-body">
-                <h5 class="card-title">Interesting Facts</h5>
-                <p class="card-text"><i class="fas fa-user"></i> Jordan Moore</p>
-                <button class="reserve-btn">Reserve</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="col-md-3 mb-4">
-            <div class="card">
-              <img src="images/pic4.png" class="card-img-top" alt="Card Image">
-              <div class="card-body">
-                <h5 class="card-title">Elon Musk</h5>
-                <p class="card-text"><i class="fas fa-user"></i> Walter Isaacson</p>
-                <button class="reserve-btn">Reserve</button>
+      <div class="container mt-4 content-container">
+        <div class="container mt-4">
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" id="searchInput" placeholder="Search..." aria-label="Search"
+                  aria-describedby="searchButton">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" id="searchButton"><i
+                      class="fas fa-search"></i></button>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="row">
-          <!-- Card 5 -->
-          <div class="col-md-3 mb-4">
-            <div class="card">
-              <img src="images/pic5.png" class="card-img-top" alt="Card Image">
-              <div class="card-body">
-                <h5 class="card-title">Fourth Wing</h5>
-                <p class="card-text"><i class="fas fa-user"></i> Rebecca Yarros</p>
-                <button class="reserve-btn">Reserve</button>
+        <div class="container mt-4">
+          <div class="row">
+            <!-- Card 1 -->
+            <div class="col-md-3 mb-4 expandable-card" data-card-id="1">
+              <div class="card">
+                <img src="images/pic1.png" class="card-img-top" alt="Card Image">
+                <div class="card-body">
+                  <h5 class="card-title">Think Faster, Talk Smarter</h5>
+                  <p class="card-text"><i class="fas fa-user"></i> Matt Abrahams</p>
+                  <button class="reserve-btn" id="c1">Reserve</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-3 mb-4 expandable-card" data-card-id="2">
+              <div class="card">
+                <img src="images/pic2.png" class="card-img-top" alt="Card Image">
+                <div class="card-body">
+                  <h5 class="card-title">Atomic Habits</h5>
+                  <p class="card-text"><i class="fas fa-user"></i> James Clear</p>
+                  <button class="reserve-btn" id="c2">Reserve</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-md-3 mb-4 expandable-card" data-card-id="3">
+              <div class="card">
+                <img src="images/pic3.png" class="card-img-top" alt="Card Image">
+                <div class="card-body">
+                  <h5 class="card-title">Interesting Facts</h5>
+                  <p class="card-text"><i class="fas fa-user"></i> Jordan Moore</p>
+                  <button class="reserve-btn" id="c3">Reserve</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-md-3 mb-4 expandable-card" data-card-id="4">
+              <div class="card">
+                <img src="images/pic4.png" class="card-img-top" alt="Card Image">
+                <div class="card-body">
+                  <h5 class="card-title">Elon Musk</h5>
+                  <p class="card-text"><i class="fas fa-user"></i> Walter Isaacson</p>
+                  <button class="reserve-btn" id="c4">Reserve</button>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Card 6 -->
-          <div class="col-md-3 mb-4">
-            <div class="card">
-              <img src="images/pic6.png" class="card-img-top" alt="Card Image">
-              <div class="card-body">
-                <h5 class="card-title">Split</h5>
-                <p class="card-text"><i class="fas fa-user"></i> Alida Bremer</p>
-                <button class="reserve-btn">Reserve</button>
+          <div class="row">
+            <!-- Card 5 -->
+            <div class="col-md-3 mb-4 expandable-card" data-card-id="5">
+              <div class="card">
+                <img src="images/pic5.png" class="card-img-top" alt="Card Image">
+                <div class="card-body">
+                  <h5 class="card-title">Fourth Wing</h5>
+                  <p class="card-text"><i class="fas fa-user"></i> Rebecca Yarros</p>
+                  <button class="reserve-btn" id="c5">Reserve</button>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Card 7 -->
-          <div class="col-md-3 mb-4">
-            <div class="card">
-              <img src="images/pic7.png" class="card-img-top" alt="Card Image">
-              <div class="card-body">
-                <h5 class="card-title">Klara and The Sun</h5>
-                <p class="card-text"><i class="fas fa-user"></i> Kazuo Ishiguro</p>
-                <button class="reserve-btn">Reserve</button>
+            <!-- Card 6 -->
+            <div class="col-md-3 mb-4 expandable-card" data-card-id="6">
+              <div class="card">
+                <img src="images/pic6.png" class="card-img-top" alt="Card Image">
+                <div class="card-body">
+                  <h5 class="card-title">Split</h5>
+                  <p class="card-text"><i class="fas fa-user"></i> Alida Bremer</p>
+                  <button class="reserve-btn" id="c6">Reserve</button>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Card 8 -->
-          <div class="col-md-3 mb-4">
-            <div class="card">
-              <img src="images/pic8.png" class="card-img-top" alt="Card Image">
-              <div class="card-body">
-                <h5 class="card-title">Cosmos</h5>
-                <p class="card-text"><i class="fas fa-user"></i> Carl Sagan</p>
-                <button class="reserve-btn">Reserve</button>
+            <!-- Card 7 -->
+            <div class="col-md-3 mb-4 expandable-card" data-card-id="7">
+              <div class="card">
+                <img src="images/pic7.png" class="card-img-top" alt="Card Image">
+                <div class="card-body">
+                  <h5 class="card-title">Klara and The Sun</h5>
+                  <p class="card-text"><i class="fas fa-user"></i> Kazuo Ishiguro</p>
+                  <button class="reserve-btn" id="c7">Reserve</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="col-md-3 mb-4 expandable-card" data-card-id="8">
+              <div class="card">
+                <img src="images/pic8.png" class="card-img-top" alt="Card Image">
+                <div class="card-body">
+                  <h5 class="card-title">Cosmos</h5>
+                  <p class="card-text"><i class="fas fa-user"></i> Carl Sagan</p>
+                  <button class="reserve-btn" id="c8">Reserve</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="section" id="2">
+
+    <div class="section" id="s2">
+      <div class="yellow-banner">
+        <div class="text-container">
+          <h1>Welcome to Woodlands School Library</h1>
+          <p>Discover a world of knowledge and adventure. We have books under a few categories for your reading pleasure.</p>
+        </div>
+        <img src="images/pic2.png" alt="Sample Logo" class="logo">
+      </div>
       <div>
         <canvas id="myChart"></canvas>
       </div>
     </div>
-    <div class="section" id="3">
-      <table id="table1" class="display" width="100%"></table>
+    <div class="section" id="s3">
+      <div class="yellow-banner">
+        <div class="text-container">
+          <h1>Welcome to Woodlands School Library</h1>
+          <p>Discover a world of knowledge and adventure. We have books under a few categories for your reading pleasure.</p>
+        </div>
+        <img src="images/pic2.png" alt="Sample Logo" class="logo">
+      </div>
+      <div>
+        <div id="table-container">
+          <table id="table1" class="display" width="100%"></table>
+        </div>
+      </div>
     </div>
   </div>
 
+  <div id="cardModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modalTitle"></div>
+      </div>
+      <div id="modalContent"></div>
+    </div>
+  </div>
 
-
-  <!-- Include the Bootstrap JS library and Font Awesome JS library -->
-  <!-- Include the Bootstrap JS library and Font Awesome JS library -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -169,76 +214,261 @@
   <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
   <script src="https://unpkg.com/fullpage.js/dist/fullpage.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://unpkg.com/tippy.js@6"></script>
 
   <script>
-
-    // Initialise DataTables to the table above
     $(document).ready(function () {
-
-      $(document).ready(function () {
-        $("#fullpage").fullpage({
-          navigation: true,
-          navigationPosition: "right",
-        });
-      });
-
-      $('.reserve-btn').on('click', function () {
-        // Check if the button is not already reserved
-        if (!$(this).hasClass('reserved')) {
-          // Change button text and class
-          $(this).text('Reserved').addClass('reserved');
-
-          // Add any additional logic or actions here when the button is reserved
-        }
-      });
-
-      var bookDataSet = [
-        ["The Great Gatsby", "F. Scott Fitzgerald", "Classic", 1925, "Fiction"],
-        ["To Kill a Mockingbird", "Harper Lee", "Fiction", 1960, "Novel"],
-        ["1984", "George Orwell", "Dystopian", 1949, "Novel"],
-        ["Pride and Prejudice", "Jane Austen", "Romance", 1813, "Novel"],
-        ["The Hobbit", "J.R.R. Tolkien", "Fantasy", 1937, "Adventure"],
-        ["The Catcher in the Rye", "J.D. Salinger", "Coming-of-age", 1951, "Novel"],
-        ["The Da Vinci Code", "Dan Brown", "Mystery", 2003, "Thriller"],
-        ["The Hunger Games", "Suzanne Collins", "Science Fiction", 2008, "Young Adult"],
-        ["Harry Potter and the Sorcerer's Stone", "J.K. Rowling", "Fantasy", 1997, "Young Adult"],
-        ["The Lord of the Rings", "J.R.R. Tolkien", "Fantasy", 1954, "Adventure"],
-        ["The Shining", "Stephen King", "Horror", 1977, "Novel"],
-        ["The Alchemist", "Paulo Coelho", "Adventure", 1988, "Novel"],
-        ["The Chronicles of Narnia", "C.S. Lewis", "Fantasy", 1950, "Adventure"],
-        ["One Hundred Years of Solitude", "Gabriel García Márquez", "Magical Realism", 1967, "Novel"],
-        ["Brave New World", "Aldous Huxley", "Dystopian", 1932, "Novel"],
-      ];
-
-
-      $('#table1').DataTable({
-        data: bookDataSet,
-        columns: [
-          { title: "Title" },
-          { title: "Author" },
-          { title: "Genre" },
-          { title: "Year" },
-          { title: "Type" }
-        ]
+      $("#fullpage").fullpage({
+        navigation: true,
+        navigationPosition: "right",
       });
     });
 
+    tippy('#c1', {
+      placement: 'bottom', 
+      content: 'Want to think faster?'
+    });
+
+    tippy('#c2', {
+      placement: 'bottom', 
+      content: 'Develop good habits!'
+    });
+
+    tippy('#c3', {
+      placement: 'bottom', 
+      content: 'Expand your knowledge!'
+    });
+
+    tippy('#c4', {
+      placement: 'bottom', 
+      content: 'Want to be inspired?'
+    });
+
+    tippy('#c5', {
+      placement: 'bottom', 
+      content: 'Enter the world of Dragon Riders!'
+    });
+
+    tippy('#c6', {
+      placement: 'bottom', 
+      content: 'Enter prewar eastern Europe!'
+    });
+
+    tippy('#c7', {
+      placement: 'bottom', 
+      content: 'The story of a curious AI'
+    });
+
+    tippy('#c8', {
+      placement: 'bottom', 
+      content: 'Curious about the mysteries of the universe?'
+    });
+    
+    // Function to expand the card on hover
+    function expandCard(card) {
+      anime({
+        targets: card,
+        scaleX: 1.1,
+        scaleY: 1.1,
+        boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.5)',
+        duration: 300,
+        easing: 'easeOutQuad',
+      });
+    }
+
+    // Function to shrink the card when not hovering
+    function shrinkCard(card) {
+      anime({
+        targets: card,
+        scaleX: 1,
+        scaleY: 1,
+        boxShadow: '0px 0px 0px rgba(0, 0, 0, 0)',
+        duration: 300,
+        easing: 'easeOutQuad',
+      });
+    }
+
+    // Event listeners to trigger the animation on hover
+    $('.expandable-card').hover(
+      function () {
+        expandCard(this);
+      },
+      function () {
+        shrinkCard(this);
+      }
+    );
+
+    function openModal(cardData) {
+      $('#modalContent').html(cardData.content);
+      $('#cardModal').css('display', 'flex');
+    }
+
+    // Function to close the modal
+    function closeModal() {
+      $('#cardModal').css('display', 'none');
+    }
+
+    // Modify the click event listener to pass the corresponding card data
+    $('.expandable-card').click(function () {
+      var cardId = $(this).data('card-id');
+      var cardData;
+
+      // Check the card ID and assign the corresponding data
+      if (cardId === 1) {
+        cardData = {
+          title: "Think Faster, Talk Smarter: How to Speak Successfully When You're Put on the Spot",
+          content: 'Stanford lecturer and host of the #1 business podcast Think Fast, Talk Smart, Matt Abrahams, reveals the secrets to finding the right words when it counts. <br/><br/> "Filled with practical, tactical advice, this book is indispensable" <br/><br/> – Kim Scott, bestselling author of Radical Candor',
+        };
+      } else if (cardId === 2) {
+        cardData = {
+          title: 'Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones',
+          content: "No matter your goals, Atomic Habits offers a proven framework for improving—every day. James Clear, one of the world's leading experts on habit formation, reveals practical strategies that will teach you exactly how to form good habits, break bad ones, and master the tiny behaviors that lead to remarkable results.",
+        };
+
+      } else if (cardId === 3) {
+        cardData = {
+          title: 'Interesting Facts For Curious Minds',
+          content: 'Want to impress your friends and family with both useful, worthless but undeniably interesting facts? <br/><br/> Then Interesting Facts For Curious Minds: 1572 Random But Mind Blowing Facts About History, Science, Pop Culture and Everything in Between is the book for you!',
+        };
+
+      } else if (cardId === 4) {
+        cardData = {
+          title: 'Elon Musk',
+          content: '#1 New York Times bestseller <br/><br/> From the author of Steve Jobs and other bestselling biographies, this is the astonishingly intimate story of the most fascinating and controversial innovator of our era--a rule-breaking visionary who helped to lead the world into the era of electric vehicles, private space exploration, and artificial intelligence. Oh, and took over Twitter.',
+        };
+
+      } else if (cardId === 5) {
+        cardData = {
+          title: 'Fourth Wing',
+          content: 'Enter the brutal and elite world of a war college for dragon riders from USA Today bestselling author Rebecca Yarros. <br/><br/> Twenty-year-old Violet Sorrengail was supposed to enter the Scribe Quadrant, living a quiet life among books and history. Now, the commanding general—also known as her tough-as-talons mother—has ordered Violet to join the hundreds of candidates striving to become the elite of Navarre: dragon riders.',
+        };
+
+      } else if (cardId === 6) {
+        cardData = {
+          title: 'Split',
+          content: "Nazis, spies, romance, and murder collide in prewar eastern Europe in a mesmerizing historical novel by the award-winning author of Oliva’s Garden. <br/><br/> With so many suspects from all walks of life and with a myriad of motives at a time when tensions are boiling over, crime superintendent Mario Bulat has only rumors to follow. Political archrivals will take advantage of the crime. Local lovers will become embroiled in it. And a propagandist filmmaker will find himself in the wrong place at the wrong time. War is coming, and for some in Split, it’s already here.",
+        };
+
+      } else if (cardId === 7) {
+        cardData = {
+          title: 'Klara and The Sun',
+          content: 'From her place in the store, Klara, an Artificial Friend with outstanding observational qualities, watches carefully the behavior of those who come in to browse, and of those who pass on the street outside. She remains hopeful that a customer will soon choose her, but when the possibility emerges that her circumstances may change forever, Klara is warned not to invest too much in the promises of humans.',
+        };
+
+      } else if (cardId === 8) {
+        cardData = {
+          title: 'Cosmos',
+          content: 'Cosmos is not just about the mysteries of space. Sagan leads every chapter with a philosophical quote to remind readers that the universe is not simply stars and planets, but a link between all things. He reminds readers that "we are all star stuff," and, though it seems humans are currently alone in space, the universe was not created for our race to thrive, but that we are a product of something much larger.',
+        };
+      }
+
+      // Open the modal with the specific data
+      openModal(cardData);
+    });
+
+    function openModal(cardData) {
+      $('.overlay').css('display', 'block');
+      $('#modalTitle').html(cardData.title);
+      $('#modalContent').html(cardData.content);
+      $('#cardModal').css('display', 'flex');
+    }
+
+    // Function to close the modal
+    function closeModal() {
+      $('.overlay').css('display', 'none');
+      $('#cardModal').css('display', 'none');
+    }
+
+    // Search functionality
+    $('#searchButton').on('click', function () {
+      performSearch();
+    });
+
+    $('#searchInput').on('keyup', function (event) {
+      if (event.keyCode === 13) {
+        // Enter key pressed
+        performSearch();
+      }
+    });
+
+    function performSearch() {
+      var searchText = $('#searchInput').val().toLowerCase();
+
+      // Loop through each card and check if it matches the search criteria
+      $('.card').each(function () {
+        var cardTitle = $(this).find('.card-title').text().toLowerCase();
+        var cardAuthor = $(this).find('.card-text').text().toLowerCase();
+
+        if (cardTitle.includes(searchText) || cardAuthor.includes(searchText)) {
+          // Show the card if it matches and enable hover and click events
+          $(this).show().addClass('expandable-card').removeClass('hidden').css('pointer-events', 'auto');
+        } else {
+          // Hide the card if it doesn't match and disable hover and click events
+          $(this).hide().removeClass('expandable-card').addClass('hidden').css('pointer-events', 'none');
+        }
+      });
+    }
+
+    $('.reserve-btn').on('click', function () {
+      // Check if the button is not already reserved
+      if (!$(this).hasClass('reserved')) {
+        // Change button text and class
+        $(this).text('Reserved').addClass('reserved');
+
+        // Add any additional logic or actions here when the button is reserved
+      }
+    });
+
+    var bookDataSet = [
+      ["The Great Gatsby", "F. Scott Fitzgerald", "Classic", 1925, "Fiction"],
+      ["To Kill a Mockingbird", "Harper Lee", "Fiction", 1960, "Novel"],
+      ["1984", "George Orwell", "Dystopian", 1949, "Novel"],
+      ["Pride and Prejudice", "Jane Austen", "Romance", 1813, "Novel"],
+      ["The Hobbit", "J.R.R. Tolkien", "Fantasy", 1937, "Adventure"],
+      ["The Catcher in the Rye", "J.D. Salinger", "Coming-of-age", 1951, "Novel"],
+      ["The Da Vinci Code", "Dan Brown", "Mystery", 2003, "Thriller"],
+      ["The Hunger Games", "Suzanne Collins", "Science Fiction", 2008, "Young Adult"],
+      ["Harry Potter and the Sorcerer's Stone", "J.K. Rowling", "Fantasy", 1997, "Young Adult"],
+      ["The Lord of the Rings", "J.R.R. Tolkien", "Fantasy", 1954, "Adventure"],
+      ["The Shining", "Stephen King", "Horror", 1977, "Novel"],
+      ["The Alchemist", "Paulo Coelho", "Adventure", 1988, "Novel"],
+      ["The Chronicles of Narnia", "C.S. Lewis", "Fantasy", 1950, "Adventure"],
+      ["One Hundred Years of Solitude", "Gabriel García Márquez", "Magical Realism", 1967, "Novel"],
+      ["Brave New World", "Aldous Huxley", "Dystopian", 1932, "Novel"],
+    ];
+
+
+    $('#table1').DataTable({
+      data: bookDataSet,
+      columns: [
+        { title: "Title", className: "title-column" },
+        { title: "Author", className: "title-column" },
+        { title: "Genre", className: "title-column" },
+        { title: "Year", className: "title-column" },
+        { title: "Type", className: "title-column" }
+      ]
+    });
+
+
     const labels = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June'
+      'Fantasy',
+      'Science Fiction',
+      'Mystery',
+      'Thriller',
+      'Romance',
+      'Non-Fiction',
+      'Bio and Memoirs'
     ];
     // Set labels, colours and data
     const data = {
       labels: labels,
       datasets: [{
-        label: 'My First Dataset',
-        backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(153, 102, 255)', 'rgb(255, 159, 64)'],
+        label: '# of Books',
+        backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(153, 102, 255)', 'rgb(255, 159, 64)', 'rgb(255, 115, 0)'],
         borderColor: 'rgb(255, 255, 255)',
-        data: [5, 10, 5, 2, 20, 30],
+        data: [12, 18, 3, 5, 2, 3, 15],
       }]
     };
     // Configure chart
