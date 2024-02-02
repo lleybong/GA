@@ -21,7 +21,7 @@
     <div class="section" id="s1">
       <nav class="navbar navbar-expand-lg navbar-light bg-warning fixed-top-navbar">
         <a class="navbar-brand" href="#">
-          <img src="your-logo.png" alt="Your Logo" height="30" class="d-inline-block align-top">
+          <img src="images/pic9.png" alt="Your Logo" class="logo1" height="30" class="d-inline-block align-top">
         </a>
 
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -66,7 +66,6 @@
 
         <div class="container mt-4">
           <div class="row">
-            <!-- Card 1 -->
             <div class="col-md-3 mb-4 expandable-card" data-card-id="1">
               <div class="card">
                 <img src="images/pic1.png" class="card-img-top" alt="Card Image">
@@ -78,7 +77,6 @@
               </div>
             </div>
 
-            <!-- Card 2 -->
             <div class="col-md-3 mb-4 expandable-card" data-card-id="2">
               <div class="card">
                 <img src="images/pic2.png" class="card-img-top" alt="Card Image">
@@ -90,7 +88,6 @@
               </div>
             </div>
 
-            <!-- Card 3 -->
             <div class="col-md-3 mb-4 expandable-card" data-card-id="3">
               <div class="card">
                 <img src="images/pic3.png" class="card-img-top" alt="Card Image">
@@ -102,7 +99,7 @@
               </div>
             </div>
 
-            <!-- Card 4 -->
+            
             <div class="col-md-3 mb-4 expandable-card" data-card-id="4">
               <div class="card">
                 <img src="images/pic4.png" class="card-img-top" alt="Card Image">
@@ -116,7 +113,6 @@
           </div>
 
           <div class="row">
-            <!-- Card 5 -->
             <div class="col-md-3 mb-4 expandable-card" data-card-id="5">
               <div class="card">
                 <img src="images/pic5.png" class="card-img-top" alt="Card Image">
@@ -128,7 +124,6 @@
               </div>
             </div>
 
-            <!-- Card 6 -->
             <div class="col-md-3 mb-4 expandable-card" data-card-id="6">
               <div class="card">
                 <img src="images/pic6.png" class="card-img-top" alt="Card Image">
@@ -140,7 +135,6 @@
               </div>
             </div>
 
-            <!-- Card 7 -->
             <div class="col-md-3 mb-4 expandable-card" data-card-id="7">
               <div class="card">
                 <img src="images/pic7.png" class="card-img-top" alt="Card Image">
@@ -152,7 +146,6 @@
               </div>
             </div>
 
-            <!-- Card 8 -->
             <div class="col-md-3 mb-4 expandable-card" data-card-id="8">
               <div class="card">
                 <img src="images/pic8.png" class="card-img-top" alt="Card Image">
@@ -169,24 +162,24 @@
     </div>
 
     <div class="section" id="s2">
-      <div class="yellow-banner">
+      <div class="yellow-banner responsive-banner">
         <div class="text-container">
           <h1>Welcome to Woodlands School Library</h1>
           <p>Discover a world of knowledge and adventure. We have books under a few categories for your reading pleasure.</p>
         </div>
-        <img src="images/pic2.png" alt="Sample Logo" class="logo">
+        <img src="images/pic9.png" alt="Sample Logo" class="logo">
       </div>
       <div>
         <canvas id="myChart"></canvas>
       </div>
     </div>
     <div class="section" id="s3">
-      <div class="yellow-banner">
+      <div class="yellow-banner responsive-banner">
         <div class="text-container">
           <h1>Welcome to Woodlands School Library</h1>
           <p>Discover a world of knowledge and adventure. We have books under a few categories for your reading pleasure.</p>
         </div>
-        <img src="images/pic2.png" alt="Sample Logo" class="logo">
+        <img src="images/pic9.png" alt="Sample Logo" class="logo">
       </div>
       <div>
         <div id="table-container">
@@ -266,7 +259,7 @@
       content: 'Curious about the mysteries of the universe?'
     });
     
-    // Function to expand the card on hover
+   
     function expandCard(card) {
       anime({
         targets: card,
@@ -278,7 +271,6 @@
       });
     }
 
-    // Function to shrink the card when not hovering
     function shrinkCard(card) {
       anime({
         targets: card,
@@ -290,7 +282,7 @@
       });
     }
 
-    // Event listeners to trigger the animation on hover
+    //trigger the animation on hover
     $('.expandable-card').hover(
       function () {
         expandCard(this);
@@ -305,17 +297,16 @@
       $('#cardModal').css('display', 'flex');
     }
 
-    // Function to close the modal
     function closeModal() {
       $('#cardModal').css('display', 'none');
     }
 
-    // Modify the click event listener to pass the corresponding card data
+    //pass the corresponding card data on click
     $('.expandable-card').click(function () {
       var cardId = $(this).data('card-id');
       var cardData;
 
-      // Check the card ID and assign the corresponding data
+      //check the card ID and assign the corresponding data
       if (cardId === 1) {
         cardData = {
           title: "Think Faster, Talk Smarter: How to Speak Successfully When You're Put on the Spot",
@@ -364,7 +355,6 @@
         };
       }
 
-      // Open the modal with the specific data
       openModal(cardData);
     });
 
@@ -375,49 +365,38 @@
       $('#cardModal').css('display', 'flex');
     }
 
-    // Function to close the modal
     function closeModal() {
       $('.overlay').css('display', 'none');
       $('#cardModal').css('display', 'none');
     }
 
-    // Search functionality
     $('#searchButton').on('click', function () {
       performSearch();
     });
 
     $('#searchInput').on('keyup', function (event) {
       if (event.keyCode === 13) {
-        // Enter key pressed
         performSearch();
       }
     });
 
     function performSearch() {
       var searchText = $('#searchInput').val().toLowerCase();
-
-      // Loop through each card and check if it matches the search criteria
       $('.card').each(function () {
         var cardTitle = $(this).find('.card-title').text().toLowerCase();
         var cardAuthor = $(this).find('.card-text').text().toLowerCase();
 
         if (cardTitle.includes(searchText) || cardAuthor.includes(searchText)) {
-          // Show the card if it matches and enable hover and click events
           $(this).show().addClass('expandable-card').removeClass('hidden').css('pointer-events', 'auto');
         } else {
-          // Hide the card if it doesn't match and disable hover and click events
           $(this).hide().removeClass('expandable-card').addClass('hidden').css('pointer-events', 'none');
         }
       });
     }
 
     $('.reserve-btn').on('click', function () {
-      // Check if the button is not already reserved
       if (!$(this).hasClass('reserved')) {
-        // Change button text and class
         $(this).text('Reserved').addClass('reserved');
-
-        // Add any additional logic or actions here when the button is reserved
       }
     });
 
@@ -461,7 +440,7 @@
       'Non-Fiction',
       'Bio and Memoirs'
     ];
-    // Set labels, colours and data
+
     const data = {
       labels: labels,
       datasets: [{
@@ -471,12 +450,12 @@
         data: [12, 18, 3, 5, 2, 3, 15],
       }]
     };
-    // Configure chart
+
     const config = {
       type: 'bar',
       data: data,
     };
-    // Render chart in <canvas>
+ 
     const myChart = new Chart(
       document.getElementById('myChart'),
       config
